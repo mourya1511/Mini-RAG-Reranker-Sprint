@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+sentence-transformers>=2.2.2
+faiss-cpu
+numpy
+pandas
+sqlalchemy
+pdfminer.six
+python-multipart
+python-dotenv
+requests

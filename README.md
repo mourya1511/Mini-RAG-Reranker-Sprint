@@ -86,33 +86,23 @@ Purple helmets required?	N/A	N/A	0.12
 
 The hybrid reranker enhanced precision in most queries; abstention prevented unsupported answers.
 
-How it Works
+How it Works:
 Ingest: PDFs → text → paragraph chunks → SQLite
-
 Embedding: Chunks → embeddings → FAISS index
-
 Baseline Search: Cosine similarity → top-k chunks
-
 Hybrid Reranker: Weighted combination of normalized vector + keyword scores → top evidence rises
-
 Answer Selection: Extractive sentence with highest overlap with query; abstain if score < threshold
 
-Lessons Learned
+Lessons Learned:
 
 Blending semantic embeddings with keyword overlap enhances relevance
-
 A threshold prevents abstention on unsupported queries
-
 Local models such as all-MiniLM-L6-v2 suffice for small-scale RAG
-
 Chunking and normalization appropriately are important for retrieval quality
-
 Tuning ALPHA (reranker weight) and THRESHOLD (abstain control) maximizes accuracy
 
-Notes / Tips
+Notes / Tips:
 
 Tune hybrid scoring by adjusting ALPHA in reranker.py
-
 Control abstention by adjusting THRESHOLD in api.py
-
 Save data/embeddings and data/chunks.db for reproducibility
